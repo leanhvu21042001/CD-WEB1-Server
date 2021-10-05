@@ -21,7 +21,7 @@ app.use(cors({
 app.use(fileUpload());
 
 // routes
-app.use("/", require('./src/routes/index.routes'));
+app.use("/api", require('./src/routes/index.routes'));
 
 const port = process.env.PORT || 1412;
 http.createServer(app).listen(port, () => console.log(`http://localhost:${port}`));
