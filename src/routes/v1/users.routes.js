@@ -1,18 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
+const UserController = require('../../controllers/user.controller')
 
 // endpoint user with auth.
-router.get('/:_userId', function (req, res) {
-  return res.send("get user with user id");
-});
+router.get('/:_userId', UserController.getOneUserById);
 
-router.delete('/:_userId', function (req, res) {
-  return res.send("delete post with user id and post id");
-});
+router.delete('/:_userId', UserController.deleteUserById);
 
-router.patch('/:_userId', function (req, res) {
-  return res.send("update post with user id and post id");
-});
+router.patch('/:_userId', UserController.updateUserById);
 
 module.exports = router;

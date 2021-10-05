@@ -1,36 +1,24 @@
 const express = require('express');
 const router = express.Router();
 
+const PostController = require('../../controllers/post.controller');
+
 // endpoint posts without auth
-router.get('/', function (req, res) {
-  return res.json("get all posts");
-});
+router.get('/', PostController.getAllPosts);
 
-router.get('/:id', function (req, res) {
-  return res.send("get post by id");
-});
-
+router.get('/:id', PostController.getOnePostById);
 
 
 // endpoint post with auth
-router.get('/:_userId', function (req, res) {
-  return res.send("get posts with user id");
-});
+router.get('/:_userId', PostController.getAllPostsByUserID);
 
-router.get('/:id/:_userId', function (req, res) {
-  return res.send("get post with user id and post id");
-});
+router.get('/:id/:_userId', PostController.getOnePostByIdAndUserID);
 
-router.delete('/:id/:_userId', function (req, res) {
-  return res.send("delete post with user id and post id");
-});
+router.post('/:id/:_userId', PostController.addPostByUserID);
 
-router.patch('/:id/:_userId', function (req, res) {
-  return res.send("update post with user id and post id");
-});
+router.delete('/:id/:_userId', PostController.deletePostByIdAndUserID);
 
-router.post('/:id/:_userId', function (req, res) {
-  return res.send("add post with user id and post id");
-});
+router.patch('/:id/:_userId', PostController.updatePostByIdAndUserID);
+
 
 module.exports = router;
