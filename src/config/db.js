@@ -1,4 +1,4 @@
-{
+module.exports = {
   "poolConfig":{
       "host": "localhost",
       "port" : 3306,
